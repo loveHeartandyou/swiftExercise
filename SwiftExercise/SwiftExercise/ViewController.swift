@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import Alamofire
+import SnapKit
 
 class ViewController: UIViewController {
 
+    var scrollView:CycleScrollView?
+    
+    typealias Position = CGPoint
+    typealias Distance = CGFloat
+    
+    typealias Region = (Position) -> Bool
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "首页"
+        setupSubViews()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setupSubViews() -> Void {
+        scrollView = CycleScrollView(frame: view.bounds)
+        scrollView?.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.3)
+        view.addSubview(scrollView!)
     }
 
     override func didReceiveMemoryWarning() {
